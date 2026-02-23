@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cfxgienfd63jj"]
+
+[ext_resource type="Script" uid="uid://bvuf6s2ffe2d1" path="res://passenger_zone.gd" id="1_gj0gf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gj0gf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvxb7"]
+transparency = 1
+albedo_color = Color(0, 0.627451, 0.7647059, 0.58431375)
+
+[node name="PassengerZone" type="Area3D" unique_id=1924634274]
+transform = Transform3D(1.31, 0, 0, 0, 1.31, 0, 0, 0, 1.31, 0, 0, 0)
+script = ExtResource("1_gj0gf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=84319947]
+transform = Transform3D(1.505, 0, 0, 0, 1.155, 0, 0, 0, 1.505, 0, 0, 0)
+shape = SubResource("CylinderShape3D_gj0gf")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=131957530]
+transform = Transform3D(1.505, 0, 0, 0, 0.056, 0, 0, 0, 1.505, 0, 0.27, 0)
+material_override = SubResource("StandardMaterial3D_gvxb7")
+sides = 12
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
